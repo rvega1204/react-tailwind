@@ -22,4 +22,4 @@ Leverages SWC for faster builds and React refresh support.
 # License
 This project is licensed under the MIT License.
 
-Feel free to enhance this readme as needed to suit your project! 😊
+Feel free to modify this project, it's free! 😊
