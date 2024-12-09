@@ -1,11 +1,15 @@
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import logo from "../assets/logo.png";
-import { navItems } from "../constants";
+// Importing necessary components and assets
+import { Menu, X } from "lucide-react"; // Icons for toggling mobile navigation
+import { useState } from "react"; // React hook for managing state
+import logo from "../assets/logo.png"; // Logo image for the navbar
+import { navItems } from "../constants"; // Array of navigation items
 
+// Navbar component
 const Navbar = () => {
+    // State to manage the visibility of the mobile navigation drawer
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
+    // Function to toggle the mobile drawer's visibility
     const toggleNavbar = () => {
         setMobileDrawerOpen(!mobileDrawerOpen);
     };
@@ -14,10 +18,13 @@ const Navbar = () => {
         <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
             <div className="container px-4 mx-auto relative lg:text-sm">
                 <div className="flex justify-between items-center">
+                    {/* Logo and branding section */}
                     <div className="flex items-center flex-shrink-0">
                         <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
                         <span className="text-xl tracking-tight">VirtualR</span>
                     </div>
+
+                    {/* Desktop navigation menu */}
                     <ul className="hidden lg:flex ml-14 space-x-12">
                         {navItems.map((item, index) => (
                             <li key={index}>
@@ -25,6 +32,8 @@ const Navbar = () => {
                             </li>
                         ))}
                     </ul>
+
+                    {/* Desktop action buttons */}
                     <div className="hidden lg:flex justify-center space-x-12 items-center">
                         <a href="#" className="py-2 px-3 border rounded-md">
                             Sign In
@@ -36,12 +45,16 @@ const Navbar = () => {
                             Create an account
                         </a>
                     </div>
+
+                    {/* Mobile menu toggle button */}
                     <div className="lg:hidden md:flex flex-col justify-end">
                         <button onClick={toggleNavbar}>
                             {mobileDrawerOpen ? <X /> : <Menu />}
                         </button>
                     </div>
                 </div>
+
+                {/* Mobile navigation drawer */}
                 {mobileDrawerOpen && (
                     <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
                         <ul>
@@ -69,4 +82,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Navbar; // Exporting the Navbar component as default
